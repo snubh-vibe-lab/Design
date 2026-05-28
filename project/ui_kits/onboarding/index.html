@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SNUBH Vibe Lab — Onboarding</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="../web_kit.css">
+<link rel="stylesheet" href="docs.css">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel" src="DocsShell.jsx"></script>
+<script type="text/babel" src="StepBlock.jsx"></script>
+<script type="text/babel" src="Terminal.jsx"></script>
+<script type="text/babel" src="Checklist.jsx"></script>
+<script type="text/babel" src="PathTabs.jsx"></script>
+<script type="text/babel" src="Callouts.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+function App() {
+  const [activeToc, setActiveToc] = useState('paths');
+  const [pathTab, setPathTab] = useState('claude');
+
+  return (
+    <DocsShell active={activeToc} onNavigate={setActiveToc}>
+
+      {/* ===== HERO ===== */}
+      <div className="vl-meta">// 2026.05 · WORKSHOP · WINDOWS</div>
+      <h1>AI 바이브코딩 핸즈온<br/>사전 설치 가이드<i className="cursor" /></h1>
+      <p style={{ fontSize: 17, color: 'var(--mute-on-cream)', lineHeight: 1.55, maxWidth: 640 }}>
+        5/27 핸즈온 전에 아래 두 경로 중 <strong>하나 이상</strong>을 준비해 주세요.
+        강사 시연은 Claude 기준으로 진행되지만, ChatGPT 사용자는 Codex CLI로 같은 워크플로우를 따라갈 수 있습니다.
+      </p>
+
+      <Note>
+        WSL(Windows Subsystem for Linux)은 필요하지 않습니다. 일반 Windows 환경에서 그대로 진행하시면 됩니다. <strong>예상 소요 시간:</strong> 경로당 10~20분.
+      </Note>
+
+      {/* ===== STEP 0 ===== */}
+      <div className="docs-section-head">
+        <div className="vl-meta">// STEP 00 · 환경 확인</div>
+        <h2>Windows 버전 확인</h2>
+      </div>
+      <p>
+        <code>Win + R</code> → <code>winver</code> 입력 → Enter. 창에 표시되는 버전을 확인합니다.
+      </p>
+      <ul className="vl-list">
+        <li>
+          <span className="caret">&gt;</span>
+          <div><span className="lead-in">Windows 11.</span> <span className="rest">Windows Terminal이 기본 내장 — Step 01로 바로 이동.</span></div>
+        </li>
+        <li>
+          <span className="caret">&gt;</span>
+          <div><span className="lead-in">Windows 10.</span> <span className="rest">Microsoft Store에서 "Windows Terminal" 설치 권장.</span></div>
+        </li>
+      </ul>
+
+      {/* ===== PATHS ===== */}
+      <div className="docs-section-head">
+        <div className="vl-meta">// STEP 01 · 두 경로</div>
+        <h2>Claude 또는 Codex — 둘 중 하나</h2>
+      </div>
+      <p>
+        둘 다 준비할 필요는 없습니다. 본인이 이미 구독 중인 쪽을 고르세요. 시연은 Claude 기준입니다.
+      </p>
+
+      <PathTabs
+        tabs={[
+          { id: 'claude', meta: 'A · CLAUDE',   label: '클로드 (Claude Desktop)' },
+          { id: 'codex',  meta: 'B · CODEX',    label: '코덱스 (ChatGPT Codex CLI)' },
+        ]}
+        active={pathTab}
+        onChange={setPathTab}
+      >
+        {pathTab === 'claude' && (
+          <>
+            <StepBlock n={1} kicker="구독" title="Claude Pro 구독 ($20/월)">
+              <p>
+                <a href="https://claude.ai">claude.ai</a> 접속 → 우측 상단 <strong>Sign up</strong> → 좌측 하단 프로필 → <strong>Upgrade Plan</strong> → <strong>Pro</strong>. 결제 완료 시 프로필 아래 "Pro" 뱃지 표시.
+              </p>
+            </StepBlock>
+
+            <StepBlock n={2} kicker="앱 설치" title="Claude Desktop 앱">
+              <p>
+                <a href="https://claude.ai/download">claude.ai/download</a> → <strong>Download for Windows</strong> → <code>.exe</code> 더블클릭 → 기본 옵션으로 설치 → 시작 메뉴에서 <strong>Claude</strong> 실행 → 로그인.
+              </p>
+            </StepBlock>
+
+            <StepBlock n={3} kicker="CLI" title="Git for Windows 설치">
+              <p>이미 설치되어 있는지 먼저 확인:</p>
+              <Terminal shell="powershell" label="powershell">
+{`PS C:\\> git --version
+git version 2.45.2.windows.1`}
+              </Terminal>
+              <p>
+                <code>not recognized…</code> 에러가 나면 <a href="https://gitforwindows.org">gitforwindows.org</a> 에서 설치. 옵션은 모두 기본값으로 두고 <strong>Next</strong>.
+              </p>
+              <Warn>
+                <strong>중요:</strong> PowerShell 창을 완전히 닫고 다시 열어야 PATH가 적용됩니다.
+              </Warn>
+            </StepBlock>
+          </>
+        )}
+
+        {pathTab === 'codex' && (
+          <>
+            <StepBlock n={1} kicker="구독" title="ChatGPT Plus 구독 ($20/월)">
+              <p>
+                <a href="https://chatgpt.com">chatgpt.com</a> 접속 → 우측 상단 <strong>Sign up</strong> → 좌측 하단 프로필 → <strong>Upgrade plan</strong> → <strong>Plus</strong>. Codex CLI는 Plus/Pro/Business/Edu/Enterprise 구독에 모두 포함.
+              </p>
+            </StepBlock>
+
+            <StepBlock n={2} kicker="런타임" title="Node.js 22 LTS">
+              <p>이미 설치되어 있는지 먼저 확인:</p>
+              <Terminal shell="cmd" label="cmd">
+{`C:\\> node --version
+v22.11.0`}
+              </Terminal>
+              <p>
+                <code>v22</code> 미만이거나 <code>not recognized…</code> 에러면 <a href="https://nodejs.org">nodejs.org</a> 에서 LTS 설치.
+              </p>
+              <Note>
+                "Automatically install the necessary tools…" 체크박스는 <strong>체크 해제 권장</strong> — 시간이 오래 걸리고 본 핸즈온에는 불필요.
+              </Note>
+            </StepBlock>
+
+            <StepBlock n={3} kicker="CLI" title="Codex CLI 설치 및 인증">
+              <p>패키지 이름에 주의 — 반드시 <code>@openai/codex</code> 입니다.</p>
+              <Terminal shell="cmd" label="cmd">
+{`C:\\> npm install -g @openai/codex
+C:\\> codex --version
+codex 0.18.1
+
+C:\\> codex
+? Sign in with ChatGPT (opens browser)`}
+              </Terminal>
+              <Warn>
+                <strong>주의:</strong> <code>codex</code> (스코프 없음) 는 OpenAI와 무관한 2012년 패키지. 잘못 설치하면 동작하지 않습니다.
+              </Warn>
+            </StepBlock>
+          </>
+        )}
+      </PathTabs>
+
+      {/* ===== CHECKLIST ===== */}
+      <div className="docs-section-head">
+        <div className="vl-meta">// STEP 04 · 최종 체크리스트</div>
+        <h2>핸즈온 당일 준비 완료</h2>
+      </div>
+      <p>본인이 준비한 경로의 항목이 모두 ✓ 되어야 합니다.</p>
+
+      <Checklist title={pathTab === 'claude' ? 'A. 클로드 경로' : 'B. 코덱스 경로'} items={
+        pathTab === 'claude'
+          ? [
+              <span><strong>claude.ai</strong> 에서 Pro 구독 활성화 확인</span>,
+              <span><strong>Claude Desktop</strong> 앱 로그인 완료</span>,
+              <span>PowerShell에서 <code>git --version</code> 실행 시 버전 출력</span>,
+            ]
+          : [
+              <span><strong>chatgpt.com</strong> 에서 Plus 구독 활성화 확인</span>,
+              <span>cmd에서 <code>node --version</code> 실행 시 <code>v22.x.x</code> 이상</span>,
+              <span>cmd에서 <code>codex --version</code> 실행 시 버전 출력</span>,
+              <span><code>codex</code> 실행 후 ChatGPT 계정으로 로그인 완료</span>,
+            ]
+      } />
+
+      <Checklist title="공통" items={[
+        <span>App store / Play store에서 <strong>GitHub 앱</strong> 다운로드</span>,
+        <span><strong>Authenticator</strong> 앱 1개 (Google Authenticator · Authy · MS Authenticator)</span>,
+      ]} />
+
+      {/* ===== TROUBLESHOOT ===== */}
+      <div className="docs-section-head">
+        <div className="vl-meta">// STEP 05 · 트러블슈팅</div>
+        <h2>흔한 막힘과 해결</h2>
+      </div>
+
+      <ul className="vl-list">
+        <li><span className="caret">&gt;</span><div><span className="lead-in">git 미인식.</span> <span className="rest">창을 완전히 닫고 다시 열어 PATH 재적용. 그래도 안 되면 재부팅.</span></div></li>
+        <li><span className="caret">&gt;</span><div><span className="lead-in">npm 권한 에러.</span> <span className="rest">cmd를 "관리자 권한으로 실행".</span></div></li>
+        <li><span className="caret">&gt;</span><div><span className="lead-in">병원 보안.</span> <span className="rest">본인 노트북(개인 소유)으로 참여 권장.</span></div></li>
+      </ul>
+
+      <div style={{
+        marginTop: 64,
+        paddingTop: 24,
+        borderTop: '1px solid var(--rule-on-cream)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        fontFamily: 'var(--font-mono)',
+        fontSize: 11,
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+        color: 'var(--mute-on-cream)',
+      }}>
+        <span>SNUBH VIBE LAB · ONBOARDING · 2026.05</span>
+        <a href="https://github.com/snubh-vibe-lab/onboarding" style={{ color: 'var(--mute-on-cream)', textDecoration: 'none' }}>GITHUB ↗</a>
+      </div>
+
+    </DocsShell>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

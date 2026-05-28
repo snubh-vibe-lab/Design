@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SNUBH Vibe Lab — Slide System</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="slide_base.css">
+<style>
+  /* deck-stage host: it takes its own dimensions; slides go inside as <section>s.
+     We re-use the .slide layout but drop the .stage wrapper since deck-stage
+     handles scaling itself. */
+  html, body { background: #000; }
+  deck-stage:not(:defined) { visibility: hidden; }
+  deck-stage section {
+    /* override default — our slides paint their own bg */
+    background: transparent;
+    color: inherit;
+  }
+  /* Re-skin the .slide classes so they fill the deck-stage section */
+  section.slide--cream { background: var(--cream); color: var(--navy); }
+  section.slide--navy  { background: var(--navy);  color: var(--cream); }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 1. COVER -->
+  <section class="slide slide--navy" data-label="Cover">
+    <div class="mono-date" style="position:absolute; left:86px; top:72px;">// 2026.05</div>
+    <div class="sig">
+      <img src="../assets/signature_on_navy.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div style="position:absolute; left:86px; top:346px; right:86px;">
+      <div class="eyebrow">M I S S I O N &nbsp;·&nbsp; 2 0 2 6</div>
+    </div>
+    <h1 class="hero" style="position:absolute; left:86px; top:410px; right:86px; color: var(--cream);">
+      한국 의료 AI /<br>글로벌 확장 전략<i class="cursor"></i>
+    </h1>
+    <hr class="rule" style="position:absolute; left:86px; top:763px; border:0;">
+    <p class="subtitle" style="position:absolute; left:86px; top:799px; right:86px;">
+      중견 임상의 20여명, 월 1회, 직접 만든 도구로 말합니다.<br>
+      Built by established clinicians, for the workflows they actually run.
+    </p>
+    <div class="footer">SNUBH VIBE LAB · 01</div>
+  </section>
+
+  <!-- 2. CONTENT -->
+  <section class="slide slide--cream" data-label="Content">
+    <div class="mac-strip">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="path">proposal &nbsp;/&nbsp; 02-lab-rules</span>
+    </div>
+    <div class="sig">
+      <img src="../assets/signature_on_cream.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div class="eyebrow" style="position:absolute; left:86px; top:281px;">// 02 · LAB RULES</div>
+    <h2 class="title" style="position:absolute; left:86px; top:338px; right:86px;">
+      여기서는 모두 동료입니다
+    </h2>
+    <hr class="rule" style="position:absolute; left:86px; top:497px; border:0;">
+    <p class="lead" style="position:absolute; left:86px; top:526px; right:200px;">
+      직급, 연차, 과는 모임 밖의 것. 모르는 것은 자랑입니다.
+    </p>
+    <ul class="bullets" style="position:absolute; left:86px; top:655px; right:200px; padding:0; margin:0;">
+      <li>
+        <span class="caret">&gt;</span>
+        <div><span class="lead-in">동료 원칙.</span> <span class="rest">실패담은 성공담보다 가치 있음</span></div>
+      </li>
+      <li>
+        <span class="caret">&gt;</span>
+        <div><span class="lead-in">보여주기.</span> <span class="rest">설명보다 데모, 이론보다 코드</span></div>
+      </li>
+      <li>
+        <span class="caret">&gt;</span>
+        <div><span class="lead-in">책임.</span> <span class="rest">환자 데이터는 교수 개인이 책임집니다</span></div>
+      </li>
+    </ul>
+    <div class="footer">SNUBH VIBE LAB · 02</div>
+  </section>
+
+  <!-- 3. SECTION DIVIDER -->
+  <section class="slide slide--navy" data-label="Section">
+    <div class="sig">
+      <img src="../assets/signature_on_navy.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div style="position:absolute; left:86px; top:426px; right:86px;">
+      <div class="eyebrow">// 03 · METHODS</div>
+      <h2 class="hero" style="margin-top:34px; color: var(--cream);">방법론<i class="cursor"></i></h2>
+    </div>
+    <div class="footer">SNUBH VIBE LAB · 03</div>
+  </section>
+
+  <!-- 4. STAT -->
+  <section class="slide slide--cream" data-label="Stat">
+    <div class="mac-strip">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="path">proposal &nbsp;/&nbsp; 04-impact</span>
+    </div>
+    <div class="sig">
+      <img src="../assets/signature_on_cream.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div class="eyebrow" style="position:absolute; left:86px; top:281px;">// 04 · IMPACT</div>
+    <h2 class="title" style="position:absolute; left:86px; top:338px; right:86px;">
+      중견 교수가 만드는 도구
+    </h2>
+    <hr class="rule" style="position:absolute; left:86px; top:497px; border:0;">
+    <div style="position:absolute; left:86px; top:560px; display:flex; align-items:flex-end; gap:60px;">
+      <div class="stat-num">20<span class="unit">+</span></div>
+      <div style="padding-bottom: 60px; max-width: 600px;">
+        <div class="eyebrow" style="margin-bottom:14px;">// MEMBERS</div>
+        <p class="body" style="margin:0;">분당서울대병원 중견교수, 매월 네 번째 주 수요일 저녁에 모임. 본인 진료·연구·교육·봉사에 직접 적용.</p>
+      </div>
+    </div>
+    <div class="footer">SNUBH VIBE LAB · 04</div>
+  </section>
+
+  <!-- 5. QUOTE -->
+  <section class="slide slide--navy" data-label="Quote">
+    <div class="sig">
+      <img src="../assets/signature_on_navy.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div class="eyebrow" style="position:absolute; left:86px; top:281px;">// 05 · WHY</div>
+    <div style="position:absolute; left:86px; top:420px; right:200px;">
+      <p class="quote">"만들고 싶은 것이 머릿속에 이미 있습니다.<br>Vibe coding의 본질은<br>내가 무엇을 원하는지 정확히 아는 것."</p>
+      <div class="quote-src">— SNUBH VIBE LAB · 왜 중견 교수 인가</div>
+    </div>
+    <div class="footer">SNUBH VIBE LAB · 05</div>
+  </section>
+
+  <!-- 6. TWO-COLUMN -->
+  <section class="slide slide--cream" data-label="Two-column">
+    <div class="mac-strip">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="path">proposal &nbsp;/&nbsp; 06-paths</span>
+    </div>
+    <div class="sig">
+      <img src="../assets/signature_on_cream.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div class="eyebrow" style="position:absolute; left:86px; top:281px;">// 06 · TWO PATHS</div>
+    <h2 class="title" style="position:absolute; left:86px; top:338px; right:86px;">
+      Claude 또는 Codex, 둘 중 하나
+    </h2>
+    <hr class="rule" style="position:absolute; left:86px; top:497px; border:0;">
+    <p class="lead" style="position:absolute; left:86px; top:526px; right:200px;">
+      핸즈온 전 둘 중 하나만 준비하면 됩니다. 시연은 Claude 기준.
+    </p>
+    <div class="twocol" style="position:absolute; left:86px; top:650px; right:160px;">
+      <div class="col">
+        <h3>A. 클로드 (Claude)</h3>
+        <hr>
+        <ul class="bullets" style="padding:0; margin:0;">
+          <li><span class="caret">&gt;</span><div><span class="lead-in">구독.</span> <span class="rest">Claude Pro · $20/월</span></div></li>
+          <li><span class="caret">&gt;</span><div><span class="lead-in">앱.</span> <span class="rest">Claude Desktop 설치 + 로그인</span></div></li>
+          <li><span class="caret">&gt;</span><div><span class="lead-in">CLI.</span> <span class="rest">Git for Windows · git --version</span></div></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>B. 코덱스 (Codex)</h3>
+        <hr>
+        <ul class="bullets" style="padding:0; margin:0;">
+          <li><span class="caret">&gt;</span><div><span class="lead-in">구독.</span> <span class="rest">ChatGPT Plus · $20/월</span></div></li>
+          <li><span class="caret">&gt;</span><div><span class="lead-in">런타임.</span> <span class="rest">Node.js 22 LTS</span></div></li>
+          <li><span class="caret">&gt;</span><div><span class="lead-in">CLI.</span> <span class="rest">npm i -g @openai/codex</span></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">SNUBH VIBE LAB · 06</div>
+  </section>
+
+  <!-- 7. CLOSING -->
+  <section class="slide slide--navy" data-label="Closing">
+    <div class="sig">
+      <img src="../assets/signature_on_navy.png" alt="vibe.lab" style="width:100%; display:block;">
+    </div>
+    <div style="position:absolute; left:86px; top:380px; right:86px;">
+      <div class="eyebrow">// CLOSING</div>
+      <h1 class="hero" style="margin-top:34px; color: var(--cream);">
+        동료로서, 만든 것으로,<br>솔직하게<i class="cursor"></i>
+      </h1>
+      <hr class="rule" style="border:0; margin-top: 48px; margin-bottom:24px;">
+      <p class="subtitle">github.com/snubh-vibe-lab &nbsp;·&nbsp; 매월 네 번째 주 수요일</p>
+    </div>
+    <img src="../assets/vibe_lab_avatar.png" alt="VL" style="position:absolute; right:86px; bottom:120px; width: 160px; height: auto;">
+    <div class="footer">SNUBH VIBE LAB · 07</div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
