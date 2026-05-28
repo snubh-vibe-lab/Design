@@ -1,0 +1,206 @@
+/* Web kit base — neutralises a few browser defaults and adds shared web patterns.
+   Loads on top of colors_and_type.css */
+
+html, body { margin: 0; padding: 0; background: var(--cream); color: var(--navy); font-family: var(--font-sans); }
+* { box-sizing: border-box; }
+
+a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--rule-on-cream);
+  transition: opacity 0.12s ease;
+}
+a:hover  { opacity: 0.6; }
+a:active { opacity: 0.4; }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+code { background: rgba(14,35,64,0.06); padding: 1px 6px; }
+pre {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 18px 22px;
+  font-size: 14px;
+  line-height: 1.55;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+pre code { background: transparent; padding: 0; color: inherit; }
+
+/* Top navigation strip */
+.vl-topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 56px;
+  border-bottom: 1px solid var(--rule-on-cream);
+}
+.vl-topnav .brand {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  text-decoration: none;
+}
+.vl-topnav .brand .mark {
+  width: 30px; height: 30px;
+}
+.vl-topnav .brand .light { font-weight: 400; opacity: 0.7; }
+.vl-topnav nav {
+  display: flex; gap: 32px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.vl-topnav nav a {
+  color: var(--mute-on-cream);
+  text-decoration: none;
+}
+.vl-topnav nav a:hover { color: var(--navy); opacity: 1; }
+.vl-topnav nav a.is-active { color: var(--navy); }
+
+/* Eyebrow / micro labels */
+.vl-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute-on-cream);
+}
+
+/* Hero block */
+.vl-hero {
+  padding: 86px 56px 64px;
+  border-bottom: 1px solid var(--rule-on-cream);
+}
+.vl-hero h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 64px;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 16px 0 0 0;
+  max-width: 900px;
+}
+.vl-hero .lead {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--mute-on-cream);
+  margin: 22px 0 0 0;
+  max-width: 720px;
+}
+.vl-hero .cursor {
+  display: inline-block;
+  background: var(--green);
+  width: 0.22em;
+  height: 0.78em;
+  vertical-align: -0.04em;
+  margin-left: 0.08em;
+  animation: vl-blink 1.05s steps(1, end) infinite;
+}
+
+/* Section heading */
+.vl-section {
+  padding: 64px 56px;
+  border-bottom: 1px solid var(--rule-on-cream);
+}
+.vl-section h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+  margin: 12px 0 0 0;
+}
+.vl-section .vl-rule { width: 56px; margin: 26px 0 28px 0; border: 0; border-top: 1px solid var(--rule-on-cream); }
+.vl-section .lead {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--mute-on-cream);
+  max-width: 700px;
+}
+
+/* Bullet list */
+.vl-list {
+  list-style: none; padding: 0; margin: 24px 0 0 0;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.vl-list li { display: flex; align-items: baseline; gap: 16px; }
+.vl-list li .caret {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--green);
+  width: 18px;
+  flex-shrink: 0;
+}
+.vl-list li .lead-in { font-weight: 600; color: var(--navy); }
+.vl-list li .rest    { color: var(--body-dim); margin-left: 14px; }
+
+/* Plain card (no chrome — title + rule + text) */
+.vl-card {
+  padding: 24px 0;
+}
+.vl-card .vl-meta { margin-bottom: 8px; }
+.vl-card h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.005em;
+  margin: 0 0 10px 0;
+}
+.vl-card p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body-dim);
+  margin: 0;
+}
+
+/* Buttons (sharp corners, no chrome) */
+.vl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.vl-btn:hover { background: var(--navy); color: var(--cream); opacity: 1; }
+.vl-btn:active { opacity: 0.75; }
+.vl-btn--primary {
+  background: var(--navy); color: var(--cream); border-color: var(--navy);
+}
+.vl-btn--primary:hover { background: transparent; color: var(--navy); }
+.vl-btn .caret { color: var(--green); font-weight: 700; }
+
+/* Footer */
+.vl-foot {
+  padding: 36px 56px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute-on-cream);
+}
+.vl-foot a { color: var(--mute-on-cream); text-decoration: none; }
+.vl-foot a:hover { color: var(--navy); opacity: 1; }
+
+@keyframes vl-blink { 50% { background: transparent; } }

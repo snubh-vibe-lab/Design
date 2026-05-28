@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SNUBH AI Cookbook — UI kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="../web_kit.css">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel" src="TopNav.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="SpecList.jsx"></script>
+<script type="text/babel" src="RepoGrid.jsx"></script>
+<script type="text/babel" src="PromptRecipe.jsx"></script>
+<script type="text/babel" src="FootStrip.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+function App() {
+  const [activeRecipe, setActiveRecipe] = useState(0);
+
+  return (
+    <div>
+      <TopNav active="cookbook" />
+
+      <Hero
+        meta="// 2026.09 · INITIAL PUBLIC RELEASE"
+        title={<>Validated prompts &amp; workflows<br/>for clinical AI translation</>}
+        lead="Maintained by SNUBH Vibe Lab — mid-career clinicians at Seoul National University Bundang Hospital. Built by people who run the workflows. MIT licensed."
+        primary={{ label: 'Browse prompts', href: '#prompts' }}
+        secondary={{ label: 'View on GitHub', href: 'https://github.com/snubh-vibe-lab/snubh-ai-cookbook' }}
+      />
+
+      {/* Repository directory */}
+      <section className="vl-section">
+        <div className="vl-meta">// 01 · STRUCTURE</div>
+        <h2>How the cookbook is organised</h2>
+        <hr className="vl-rule" />
+        <p className="lead">
+          Five sections, each held to the same bar: a prompt or workflow is only added once a lab member has used it in production for a real clinical task.
+        </p>
+        <RepoGrid items={[
+          { meta: 'PROMPTS',      title: 'prompts/',      body: 'Clinical-task-specific prompts validated in production workflows. Discharge summaries, image-finding extraction, citation triage.' },
+          { meta: 'WORKFLOWS',    title: 'workflows/',    body: 'Multi-step agentic workflows. Claude Code + MCP recipes wired against real EMR/PACS data flows.' },
+          { meta: 'TOOLS',        title: 'tools/',        body: 'Small standalone tools and scripts built by lab members. Each one solves one annoying thing.' },
+          { meta: 'CASE STUDIES', title: 'case-studies/', body: 'Write-ups of real clinical applications. Honest about what worked, what failed, and why.' },
+          { meta: 'EVALUATIONS',  title: 'evaluations/',  body: 'Evaluation protocols for clinical AI outputs. Reproducible scoring criteria, not vibes.' },
+          { meta: 'STATUS',       title: '🚧 Under construction', body: 'Initial public release planned for September 2026. Cite via the format in the repository README.' },
+        ]} />
+      </section>
+
+      {/* Featured recipes */}
+      <section className="vl-section">
+        <div className="vl-meta">// 02 · FEATURED RECIPES</div>
+        <h2>Three things to read first</h2>
+        <hr className="vl-rule" />
+        <p className="lead">
+          A prompt is only a recipe if it ships with the constraint, the contract, and the eval. Click a recipe to open its full notebook.
+        </p>
+
+        <div style={{ marginTop: 28 }}>
+          <PromptRecipe
+            meta="2026.04 · prompts/discharge"
+            title="Discharge summary draft — Korean EMR"
+            summary="Constraint-first system prompt for generating a discharge summary draft from structured progress notes. Refuses to invent labs that aren't in context; flags any free-text it couldn't ground."
+            code={`> 입력. 구조화된 경과기록 (JSON), 입원·퇴원 일자
+> 출력. 의무기록용 퇴원요약 초안 (Korean)
+> 제약. labs.values 안에 없는 수치는 절대 생성하지 않음
+> 검증. 모든 진단명을 ICD-10 코드로 cross-link
+`}
+            tags={['CLAUDE 3.5', 'KO', 'VALIDATED']}
+          />
+          <PromptRecipe
+            meta="2026.03 · workflows/imaging-triage"
+            title="Imaging report → priority triage (Claude Code + MCP)"
+            summary="Multi-step workflow: pulls the radiology report via MCP, extracts the impression block, asks the model to triage into one of four priority bands, posts back to the queue. Stops if confidence is below 0.7."
+            tags={['CLAUDE CODE', 'MCP', 'TRIAGE']}
+          />
+          <PromptRecipe
+            meta="2026.02 · evaluations/citation-fidelity"
+            title="Citation-fidelity scoring rubric"
+            summary="Five-point rubric for evaluating whether a generated literature review's citations actually support the claims they're attached to. Inter-rater agreement reported per dimension."
+            tags={['EVAL', 'RUBRIC', 'OPEN']}
+          />
+        </div>
+      </section>
+
+      {/* Lab rules */}
+      <section className="vl-section">
+        <div className="vl-meta">// 03 · LAB RULES</div>
+        <h2>How we work together</h2>
+        <hr className="vl-rule" />
+        <SpecList items={[
+          { lead: '동료 원칙.',    rest: '여기서는 모두 동료입니다 — 직급, 연차, 과는 모임 밖의 것' },
+          { lead: '모르는 것.',    rest: '모르는 것은 자랑입니다. 실패담은 성공담보다 가치 있음' },
+          { lead: '보여주기.',    rest: '가르치지 말고 보여주세요. 설명보다 데모, 이론보다 코드' },
+          { lead: '책임.',        rest: '환자 데이터는 교수 개인이 책임집니다 — 예외 없음' },
+          { lead: '꾸준함.',      rest: '못 오는 날도 괜찮습니다. 완벽한 출석보다 꾸준한 참여' },
+        ]} />
+      </section>
+
+      <FootStrip />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNUBH Vibe Lab — Card News · 클로드 컨텍스트 관리</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="card_news.css">
+<style>
+  html, body { background: #000; margin: 0; padding: 0; }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1080">
+
+  <!-- ====================================================== -->
+  <!-- 01 · COVER — Navy                                       -->
+  <!-- ====================================================== -->
+  <section class="card card--navy" data-label="Cover">
+    <header class="card-head">
+      <div class="card-eyebrow">// 2026.05 · CARD NEWS</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_navy.png" alt="vibe.lab">
+      </div>
+    </header>
+
+    <div class="card-body">
+      <div class="card-num">01 · COVER</div>
+      <h1 class="card-title card-title--cover" style="color: var(--cream);">
+        클로드 컨텍스트 /<br>관리하기<i class="cursor"></i>
+      </h1>
+      <hr class="card-rule">
+      <p class="card-lead">
+        AI도 기억이 유한합니다.<br>
+        대화가 길어질수록 클로드는 "잊습니다."
+      </p>
+    </div>
+
+    <footer class="card-foot">
+      <span>SNUBH VIBE LAB</span>
+      <span class="swipe">SWIPE</span>
+    </footer>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- 02 · WHY — Cream                                        -->
+  <!-- ====================================================== -->
+  <section class="card card--cream" data-label="Why">
+    <header class="card-head">
+      <div class="card-eyebrow">// WHY · 02</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_cream.png" alt="vibe.lab">
+      </div>
+    </header>
+
+    <div class="card-body">
+      <div class="card-num">02</div>
+      <h2 class="card-title">왜 컨텍스트 관리가<br>필요한가</h2>
+      <hr class="card-rule">
+      <p class="card-lead" style="max-width: 800px;">
+        클로드가 한 번에 처리할 수 있는 텍스트는 제한되어 있습니다.<br>
+        대화가 쌓일수록 초반 지시와 맥락이 밀려납니다.<br>
+        관리하지 않으면 —
+        <strong style="color: var(--navy); font-weight: 600;">응답 품질이 서서히 저하됩니다.</strong>
+      </p>
+    </div>
+
+    <footer class="card-foot">
+      <span><span class="page-num">02</span> &nbsp;·&nbsp; 04</span>
+      <span class="swipe">SWIPE</span>
+    </footer>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- 03 · HOW — Cream                                        -->
+  <!-- ====================================================== -->
+  <section class="card card--cream" data-label="How">
+    <header class="card-head">
+      <div class="card-eyebrow">// HOW · 03</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_cream.png" alt="vibe.lab">
+      </div>
+    </header>
+
+    <div class="card-body card-body--top">
+      <div class="card-num">03</div>
+      <h2 class="card-title" style="font-size: 80px;">실전 4가지 원칙</h2>
+      <hr class="card-rule">
+
+      <ul class="card-bullets" style="margin-top: 16px; font-size: 28px; gap: 22px;">
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">컨텍스트 사용량 확인.</span> <span class="rest">/status 명령 또는 "컨텍스트 얼마나 남았어?" 로 직접 확인</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">압축 또는 핸드오프 생성.</span> <span class="rest">/compact 실행 또는 handoff.md 파일 생성</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">새 세션 오픈.</span> <span class="rest">신선한 컨텍스트로 새 대화창 시작</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">handoff.md 전달 후 계속.</span> <span class="rest">이전 맥락을 붙여넣고 작업 이어서 진행</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <footer class="card-foot">
+      <span><span class="page-num">03</span> &nbsp;·&nbsp; 04</span>
+      <span class="swipe">SWIPE</span>
+    </footer>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- 04 · SUMMARY — Navy                                     -->
+  <!-- ====================================================== -->
+  <section class="card card--navy" data-label="Summary">
+    <header class="card-head">
+      <div class="card-eyebrow">// SUMMARY · 04</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_navy.png" alt="vibe.lab">
+      </div>
+    </header>
+
+    <div class="card-body">
+      <div class="card-num">04</div>
+      <h2 class="card-title" style="color: var(--cream); font-size: 96px;">
+        짧게, 자주,<br>명확하게<i class="cursor"></i>
+      </h2>
+      <hr class="card-rule">
+      <p class="card-lead">
+        컨텍스트는 소모됩니다.<br>
+        적게 쓰고, 제때 리셋하세요.<br>
+        <span style="font-family: var(--font-mono); font-size: 26px; letter-spacing: 0.08em; color: var(--mute-on-navy);">github.com/snubh-vibe-lab</span>
+      </p>
+    </div>
+
+    <div class="card-avatar">
+      <img src="../assets/vibe_lab_avatar.png" alt="VL">
+    </div>
+
+    <footer class="card-foot">
+      <span>SNUBH VIBE LAB · 04 / 04</span>
+      <span>END</span>
+    </footer>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>

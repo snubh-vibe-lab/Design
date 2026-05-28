@@ -1,0 +1,300 @@
+/* ============================================================
+   SNUBH Vibe Lab — Colors & Type
+   Source of truth for tokens. Import this once per page.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   FONT FACES
+   Variable fonts; weight axis 100–900, optical-size axis where present.
+   Pretendard is the recommended Korean (East-Asian) fallback because
+   its metrics line up with Inter — load from CDN.
+   ------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Pretendard — Korean fallback. Same metrics as Inter. */
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("fonts/PretendardVariable.ttf") format("truetype-variations");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+
+:root {
+  /* --- Brand palette (the only colors that should appear) --- */
+  --navy:           #0E2340;   /* primary dark — bg of cover/section/quote slides, fg on cream */
+  --cream:          #F2EEE5;   /* primary light — bg of content slides, fg on navy */
+  --green:          #1FB85C;   /* the single accent: cursor block, > caret, unit detail */
+
+  /* --- On-navy surface --- */
+  --mute-on-navy:   #8FA3C2;   /* labels, captions, footer */
+  --rule-on-navy:   #3A4D6B;   /* 1pt horizontal rules */
+
+  /* --- On-cream surface --- */
+  --mute-on-cream:  #5B6B7F;   /* subtitle, mac path, footer */
+  --rule-on-cream:  #9AA8B8;   /* 1pt horizontal rules */
+  --body-dim:       #3A4D6B;   /* body copy on cream (slightly softer than navy) */
+
+  /* --- macOS window dots (header strip on content slides) --- */
+  --mac-red:        #FF5F57;
+  --mac-yellow:     #FEBC2E;
+  --mac-green:      #28C840;
+
+  /* --- Semantic aliases (use these in components) --- */
+  --bg-dark:        var(--navy);
+  --bg-light:       var(--cream);
+  --fg-on-dark:     var(--cream);
+  --fg-on-light:    var(--navy);
+  --accent:         var(--green);
+
+  /* --- Type families --- */
+  --font-sans: "Inter", "Pretendard Variable", "Pretendard",
+               "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* --- Type scale (16:9 deck baseline, 1920×1080 / 13.333" × 7.5") --- */
+  /* Sizes given in points; multiply by 1.333 for px on a 96dpi screen */
+  --fs-h1:        64pt;   /* cover title */
+  --fs-h2:        42pt;   /* slide title */
+  --fs-h3:        24pt;   /* sub-section */
+  --fs-lead:      17pt;   /* subtitle / lead paragraph */
+  --fs-body:      16pt;   /* body */
+  --fs-small:     13pt;   /* two-column bullets */
+  --fs-stat:     120pt;   /* stat callout */
+  --fs-quote:     36pt;   /* pull-quote */
+  --fs-mono-lbl:  11pt;   /* section label, eyebrow */
+  --fs-mono-strip: 10.5pt;/* mac header path */
+  --fs-mono-foot: 9.5pt;  /* footer page num */
+
+  /* --- Letter spacing (CSS em values; PPTX uses 1/100pt — see README) --- */
+  --tracking-h1:        -0.01em;   /* spc=-64 at 64pt */
+  --tracking-h2:        -0.005em;  /* spc=-22 at 42pt */
+  --tracking-label:      0.12em;   /* spc=132 — UPPERCASE mono label */
+  --tracking-strip:      0.05em;   /* spc=60  — mac path */
+  --tracking-foot:       0.20em;   /* spc=200 — footer */
+  --tracking-cover-date: 0.07em;   /* spc=80  — cover date */
+
+  /* --- Line-heights --- */
+  --lh-tight:  1.05;   /* cover title */
+  --lh-title:  1.10;   /* slide title */
+  --lh-body:   1.45;   /* subtitle / body */
+
+  /* --- Geometry --- */
+  --margin-x:  0.6in;
+  --margin-y:  0.5in;
+  --slide-w:   13.333in;
+  --slide-h:   7.5in;
+
+  /* --- Strokes & radii (the system is mostly flat) --- */
+  --rule:        1px solid var(--rule-on-cream);
+  --rule-dark:   1px solid var(--rule-on-navy);
+  --radius-none: 0;
+  --radius-dot:  999px;     /* mac dots / cursor pills only */
+}
+
+/* ============================================================
+   SEMANTIC CLASSES
+   Use these in HTML; element selectors are intentionally avoided
+   so the same vocabulary works in deck, prototype, and doc contexts.
+   ============================================================ */
+
+.vl-body {
+  font-family: var(--font-sans);
+  color: var(--fg-on-light);
+  background: var(--bg-light);
+  font-feature-settings: "ss01", "cv11", "calt";  /* Inter tabular alts */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Cover title — pair with .vl-cursor at end of last line, no period */
+.vl-h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  letter-spacing: var(--tracking-h1);
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+
+/* Slide title */
+.vl-h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--lh-title);
+  margin: 0;
+}
+
+.vl-h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.vl-lead {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--mute-on-cream);
+}
+
+.vl-body-text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--body-dim);
+}
+
+/* Bullet lead-in — bold navy followed by 3 spaces then regular dim text */
+.vl-bullet-lead {
+  font-weight: 600;
+  color: var(--fg-on-light);
+}
+
+/* Mono section eyebrow — always UPPERCASE in source */
+.vl-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--fs-mono-lbl);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--mute-on-cream);
+}
+
+.vl-eyebrow--on-navy { color: var(--mute-on-navy); }
+
+/* Mac-window path strip on content slides */
+.vl-mac-path {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-mono-strip);
+  letter-spacing: var(--tracking-strip);
+  color: var(--mute-on-cream);
+}
+
+/* Footer */
+.vl-footer {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-mono-foot);
+  letter-spacing: var(--tracking-foot);
+  color: var(--mute-on-cream);
+  text-transform: uppercase;
+}
+
+.vl-footer--on-navy { color: var(--mute-on-navy); }
+
+/* Mono cover date */
+.vl-cover-date {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-mono-lbl);
+  letter-spacing: var(--tracking-cover-date);
+  color: var(--mute-on-navy);
+}
+
+/* `>` caret — the only place green appears as text */
+.vl-caret {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* Cursor block — pair with .vl-h1, sits inline at the end of last line */
+.vl-cursor {
+  display: inline-block;
+  background: var(--green);
+  width: 0.4em;        /* tuned against 64pt cap height */
+  height: 0.8em;
+  vertical-align: -0.05em;
+  margin-left: 0.08em;
+  animation: vl-blink 1.05s steps(1, end) infinite;
+}
+
+@keyframes vl-blink {
+  50% { background: transparent; }
+}
+
+/* Short horizontal rule under titles */
+.vl-rule {
+  border: 0;
+  border-top: 1px solid var(--rule-on-cream);
+  width: 64px;
+  margin: 0;
+}
+.vl-rule--on-navy { border-top-color: var(--rule-on-navy); }
+
+/* Mac dots */
+.vl-mac-dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.vl-mac-dots > i {
+  width: 11px; height: 11px;
+  border-radius: var(--radius-dot);
+  background: var(--mac-red);
+  display: inline-block;
+}
+.vl-mac-dots > i:nth-child(2) { background: var(--mac-yellow); }
+.vl-mac-dots > i:nth-child(3) { background: var(--mac-green); }
+
+/* Stat callout */
+.vl-stat {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-stat);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--fg-on-light);
+}
+.vl-stat .vl-unit { color: var(--green); }
+
+/* Pullout quote */
+.vl-quote {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-quote);
+  line-height: 1.25;
+  color: var(--fg-on-dark);
+  border-left: 3px solid var(--green);
+  padding-left: 0.5em;
+}
