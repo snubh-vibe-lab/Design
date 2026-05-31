@@ -16,6 +16,7 @@ deck-stage:not(:defined) { visibility: hidden; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  word-break: keep-all;        /* Korean wraps at word boundaries, never mid-word */
 }
 
 .card--cream { background: var(--cream); color: var(--navy); }
@@ -25,7 +26,7 @@ deck-stage:not(:defined) { visibility: hidden; }
 
 .card-head {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;        /* signature bottom aligns with eyebrow bottom line */
   justify-content: space-between;
   gap: 32px;
   margin-bottom: auto;          /* push body to bottom-anchored layouts when content is short */
@@ -37,6 +38,7 @@ deck-stage:not(:defined) { visibility: hidden; }
   font-size: 22px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .card--cream .card-eyebrow { color: var(--mute-on-cream); }
 .card--navy  .card-eyebrow { color: var(--mute-on-navy); }
@@ -149,6 +151,7 @@ deck-stage:not(:defined) { visibility: hidden; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
+.card-foot > span { white-space: nowrap; }
 .card--cream .card-foot { color: var(--mute-on-cream); }
 .card--navy  .card-foot { color: var(--mute-on-navy); }
 
