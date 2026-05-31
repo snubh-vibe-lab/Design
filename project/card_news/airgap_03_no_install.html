@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>망분리 환경 코딩 · 03 설치 불가</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="card_news.css">
+<style>
+  html, body { width: 1080px; height: 1080px; margin: 0; padding: 0; overflow: hidden; }
+  body { position: relative; background: var(--cream); }
+  .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 5px 14px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+</style>
+</head>
+<body>
+  <section class="card card--cream">
+    <header class="card-head">
+      <div class="card-eyebrow">// 설치 불가 · 03</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_cream.png" alt="vibe.lab">
+      </div>
+    </header>
+    <div class="card-body card-body--top">
+      <div class="card-num">03</div>
+      <div class="tag">설치 권한 없음</div>
+      <h2 class="card-title" style="font-size: 76px;">브라우저만<br>있으면 된다</h2>
+      <hr class="card-rule">
+      <ul class="card-bullets" style="font-size: 27px; gap: 24px; margin-top: 8px;">
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">Standalone HTML.</span> <span class="rest">CDN 없이 폰트·JS를 파일 안에 모두 포함한 단일 .html</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">VBA 매크로.</span> <span class="rest">Excel · Word가 설치된 PC라면 추가 설치 없이 실행</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">내장 스크립트.</span> <span class="rest">PowerShell · Batch · Bash — OS에 기본 탑재</span></div>
+        </li>
+      </ul>
+    </div>
+    <footer class="card-foot">
+      <span><span class="page-num">03</span> &nbsp;·&nbsp; 05</span>
+      <span class="swipe">SWIPE</span>
+    </footer>
+  </section>
+</body>
+</html>
