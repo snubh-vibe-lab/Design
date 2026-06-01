@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>웹 개발 역할 · 05 Summary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="card_news.css">
+<style>
+  html, body { width: 1080px; height: 1080px; margin: 0; padding: 0; overflow: hidden; }
+  body { position: relative; background: var(--navy); }
+</style>
+</head>
+<body>
+  <section class="card card--navy">
+    <header class="card-head">
+      <div class="card-eyebrow">// SUMMARY · 05</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_navy.png" alt="vibe.lab">
+      </div>
+    </header>
+    <div class="card-body card-body--top">
+      <div class="card-num">05</div>
+      <h2 class="card-title" style="color: var(--cream); font-size: 80px;">
+        역할보다<br>목적이 먼저<i class="cursor"></i>
+      </h2>
+      <hr class="card-rule">
+      <ul class="card-bullets" style="font-size: 42px; gap: 30px; margin-top: 8px;">
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">화면이 핵심이면</span> <span class="rest">→ 프론트엔드</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">데이터 · 로직이 핵심이면</span> <span class="rest">→ 백엔드</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">혼자 다 만들고 싶다면</span> <span class="rest">→ 풀스택</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-avatar">
+      <img src="../assets/vibe_lab_avatar.png" alt="VL">
+    </div>
+    <footer class="card-foot">
+      <span>SNUBH VIBE LAB · 05 / 05</span>
+      <span>END</span>
+    </footer>
+  </section>
+<script>
+window.addEventListener('load', () => {
+  const avatar = document.querySelector('.card-avatar');
+  const body = document.querySelector('.card-body');
+  if (!avatar || !body) return;
+  const gap = 24;
+  const bodyRect = body.getBoundingClientRect();
+  const avatarRect = avatar.getBoundingClientRect();
+  if (avatarRect.top < bodyRect.bottom + gap) {
+    const shift = bodyRect.bottom + gap - avatarRect.top;
+    const curBottom = parseFloat(getComputedStyle(avatar).bottom) || 168;
+    avatar.style.bottom = (curBottom + shift) + 'px';
+    avatar.style.top = 'auto';
+  }
+});
+</script>
+</body>
+</html>
