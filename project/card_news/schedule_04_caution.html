@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>스케줄 짜기 · 04 주의</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="card_news.css">
+<style>
+  html, body { width: 1080px; height: 1080px; margin: 0; padding: 0; overflow: hidden; }
+  body { position: relative; background: var(--cream); }
+</style>
+</head>
+<body>
+  <section class="card card--cream">
+    <header class="card-head">
+      <div class="card-eyebrow">// 주의할 점 · 04</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_cream.png" alt="vibe.lab">
+      </div>
+    </header>
+    <div class="card-body card-body--top">
+      <div class="card-num">04</div>
+      <h2 class="card-title" style="font-size: 80px;">꼭 알아두세요<i class="cursor"></i></h2>
+      <hr class="card-rule">
+      <ul class="card-bullets" style="font-size: 42px; gap: 30px; margin-top: 8px;">
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">한국 공휴일은 직접 알려줘야 한다.</span> <span class="rest">자동으로 알지 못함</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">복잡한 의존관계는 검증 필요.</span> <span class="rest">결과물 꼭 직접 확인</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">세션이 끊기면 맥락이 사라진다.</span> <span class="rest">Project에 기본 정보 저장해두기</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-avatar">
+      <img src="../assets/vibe_lab_avatar.png" alt="VL">
+    </div>
+    <footer class="card-foot">
+      <span>SNUBH VIBE LAB · 04 / 04</span>
+      <span>END</span>
+    </footer>
+  </section>
+<script>
+window.addEventListener('load', () => {
+  const avatar = document.querySelector('.card-avatar');
+  const body = document.querySelector('.card-body');
+  if (!avatar || !body) return;
+  const gap = 24;
+  const bodyRect = body.getBoundingClientRect();
+  const avatarRect = avatar.getBoundingClientRect();
+  if (avatarRect.top < bodyRect.bottom + gap) {
+    const shift = bodyRect.bottom + gap - avatarRect.top;
+    const curBottom = parseFloat(getComputedStyle(avatar).bottom) || 168;
+    avatar.style.bottom = (curBottom + shift) + 'px';
+    avatar.style.top = 'auto';
+  }
+});
+</script>
+</body>
+</html>
