@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>클로드 프로젝트 · 04 Summary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="card_news.css">
+<style>
+  html, body { width: 1080px; height: 1080px; margin: 0; padding: 0; overflow: hidden; }
+  body { position: relative; background: var(--navy); }
+</style>
+</head>
+<body>
+  <section class="card card--navy">
+    <header class="card-head">
+      <div class="card-eyebrow">// SUMMARY · 04</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_navy.png" alt="vibe.lab">
+      </div>
+    </header>
+    <div class="card-body card-body--top">
+      <div class="card-num">04</div>
+      <h2 class="card-title" style="color: var(--cream); font-size: 80px;">
+        지금 바로<br>시작하기<i class="cursor"></i>
+      </h2>
+      <hr class="card-rule">
+      <ul class="card-bullets" style="font-size: 42px; gap: 30px; margin-top: 8px;">
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">프로젝트 생성.</span> <span class="rest">claude.ai → Projects → New Project</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">지시사항 작성.</span> <span class="rest">"항상 한국어로, ~형식으로 답해줘" 형태로 입력</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">파일 업로드.</span> <span class="rest">PDF · 문서 · 코드 파일 등 최대 20개</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">팀 공유.</span> <span class="rest">같은 프로젝트를 팀원과 함께 사용 가능</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-avatar">
+      <img src="../assets/vibe_lab_avatar.png" alt="VL">
+    </div>
+    <footer class="card-foot">
+      <span>SNUBH VIBE LAB · 04 / 04</span>
+      <span>END</span>
+    </footer>
+  </section>
+<script>
+window.addEventListener('load', () => {
+  const avatar = document.querySelector('.card-avatar');
+  const body = document.querySelector('.card-body');
+  if (!avatar || !body) return;
+  const gap = 24;
+  const bodyRect = body.getBoundingClientRect();
+  const avatarRect = avatar.getBoundingClientRect();
+  if (avatarRect.top < bodyRect.bottom + gap) {
+    const shift = bodyRect.bottom + gap - avatarRect.top;
+    const curBottom = parseFloat(getComputedStyle(avatar).bottom) || 168;
+    avatar.style.bottom = (curBottom + shift) + 'px';
+    avatar.style.top = 'auto';
+  }
+});
+</script>
+</body>
+</html>
