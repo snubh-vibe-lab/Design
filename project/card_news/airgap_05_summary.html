@@ -52,5 +52,21 @@
       <span>END</span>
     </footer>
   </section>
+<script>
+window.addEventListener('load', () => {
+  const avatar = document.querySelector('.card-avatar');
+  const body = document.querySelector('.card-body');
+  if (!avatar || !body) return;
+  const gap = 24;
+  const bodyRect = body.getBoundingClientRect();
+  const avatarRect = avatar.getBoundingClientRect();
+  if (avatarRect.top < bodyRect.bottom + gap) {
+    const shift = bodyRect.bottom + gap - avatarRect.top;
+    const curBottom = parseFloat(getComputedStyle(avatar).bottom) || 168;
+    avatar.style.bottom = (curBottom + shift) + 'px';
+    avatar.style.top = 'auto';
+  }
+});
+</script>
 </body>
 </html>
