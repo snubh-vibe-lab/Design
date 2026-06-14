@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>scope · 04 Summary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="card_news.css">
+<style>
+  /* Re-declare faces locally so headless Chrome reliably loads the Korean font.
+     The shared colors_and_type.css face for Pretendard does not register under
+     headless (Korean then falls back to a taller system font and the footer clips).
+     font-display:block avoids a swap mid-screenshot. */
+  @font-face { font-family: "Pretendard Variable"; src: url("../fonts/PretendardVariable.ttf"); font-weight: 100 900; font-display: block; }
+  @font-face { font-family: "Inter"; src: url("../fonts/Inter-VariableFont_opsz_wght.ttf"); font-weight: 100 900; font-display: block; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono-VariableFont_wght.ttf"); font-weight: 100 900; font-display: block; }
+  html, body { width: 1080px; height: 1080px; margin: 0; padding: 0; overflow: hidden; }
+  body { position: relative; background: var(--cream); }
+</style>
+</head>
+<body>
+  <section class="card card--cream">
+    <header class="card-head">
+      <div class="card-eyebrow">// SUMMARY · 04</div>
+      <div class="card-sig">
+        <img src="../assets/signature_on_cream.png" alt="vibe.lab">
+      </div>
+    </header>
+    <div class="card-body card-body--top">
+      <div class="card-num">04</div>
+      <h2 class="card-title" style="font-size: 80px;">작게 맡기면<br>빨라진다<i class="cursor"></i></h2>
+      <hr class="card-rule">
+      <ul class="card-bullets" style="font-size: 42px; gap: 30px; margin-top: 8px;">
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">파일부터.</span> <span class="rest">고칠 위치를 먼저 정한다</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">함수까지.</span> <span class="rest">손댈 범위를 한정한다</span></div>
+        </li>
+        <li>
+          <span class="caret">&gt;</span>
+          <div><span class="lead-in">작은 단위로.</span> <span class="rest">리뷰 가능한 크기로 쪼갠다</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-avatar">
+      <img src="../assets/vibe_lab_avatar.png" alt="VL">
+    </div>
+    <footer class="card-foot">
+      <span>SNUBH VIBE LAB · 04 / 04</span>
+      <span>END</span>
+    </footer>
+  </section>
+</body>
+</html>
