@@ -7,6 +7,13 @@
 <link rel="stylesheet" href="../colors_and_type.css">
 <link rel="stylesheet" href="card_news.css">
 <style>
+  /* Re-declare faces locally so headless Chrome reliably loads the Korean font.
+     The shared colors_and_type.css face for Pretendard does not register under
+     headless (Korean then falls back to a taller system font and the footer clips).
+     font-display:block avoids a swap mid-screenshot. */
+  @font-face { font-family: "Pretendard Variable"; src: url("../fonts/PretendardVariable.ttf"); font-weight: 100 900; font-display: block; }
+  @font-face { font-family: "Inter"; src: url("../fonts/Inter-VariableFont_opsz_wght.ttf"); font-weight: 100 900; font-display: block; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono-VariableFont_wght.ttf"); font-weight: 100 900; font-display: block; }
   html, body { width: 1080px; height: 1080px; margin: 0; padding: 0; overflow: hidden; }
   body { position: relative; background: var(--navy); }
 </style>
