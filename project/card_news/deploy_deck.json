@@ -1,0 +1,30 @@
+{
+  "prefix": "deploy",
+  "eyebrowDate": "2026.06",
+  "datestamp": "20260614",
+  "htmlDir": "C:/Users/user/aiproject/snubh-vibe-lab/Design/project/card_news",
+  "outDir": "C:/Users/user/aiproject/snubh-vibe-lab/Cardnews/2026/06/deployment-platforms",
+  "topics": [
+    {
+      "code": "vercel",
+      "cover": { "title": "만든 앱을<br>인터넷에 올리기", "lead": "Vercel 같은 배포 플랫폼이<br>서버를 대신 맡아준다" },
+      "cards": [
+        { "eyebrow": "왜 필요한가", "title": "내 PC를<br>안 켜둬도 된다", "items": [
+          ["로컬만.", "내 노트북에서만 돌아가 — 끄면 아무도 못 본다"],
+          ["배포하면.", "플랫폼 서버가 24시간 대신 띄워준다"],
+          ["결과.", "링크 하나로 어디서든 접속된다"]
+        ]},
+        { "eyebrow": "어떻게 올리나", "title": "GitHub 연결로<br>끝난다", "items": [
+          ["연결.", "GitHub 저장소를 Vercel에 한 번 연결"],
+          ["자동.", "코드를 push하면 알아서 빌드·배포"],
+          ["주소.", "my-app.vercel.app 주소가 자동 발급"]
+        ]}
+      ],
+      "summary": { "title": "고르고<br>올리고 공유", "items": [
+        ["Vercel·Netlify.", "프론트·정적 사이트는 무료로 시작"],
+        ["미리보기.", "push마다 임시 링크로 먼저 확인"],
+        ["주의.", "환자정보·API 키는 올리지 말 것"]
+      ]}
+    }
+  ]
+}
